@@ -27,7 +27,7 @@ if (dice()!==1) {
 } else {
   changePLay();
 }
-$("#win").click function(event) {
+$("#win").click(function(event) {
     change();
     if (gamer[0].total >= 100) {
       alert(gamer[0].name + gamer[0].name);
@@ -60,19 +60,4 @@ function change() {
      alert(gamer[1].score);
      }
    }
-});
-
-$(document).ready(function() {
-
-  $("form#Dice").submit(function(event){
-    var player1 = $("input#player1").val();
-    var player2 = $("input#player2").val();
-      $("span#player1").text(player1);
-      $("span#player2").text(player2);
-      $("#player2Button").hide();
-      $("#player1Button").show();
-      $(".diceGame").text(pigGame.playerUp);
-      event.preventDefault();
-
-    var nameHolder = new Names(playerName1, playerName2);
-  })
+})
