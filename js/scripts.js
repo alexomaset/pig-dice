@@ -12,22 +12,6 @@ Array.prototype.total = function() {
   return this.reduce(function(p1,p2) {return p1 + p2});
 }
 
-function Player(turn) {
-  this.playerName;
-  this.roll = 0;
-  this.tempscore = 0;
-  this.totalscore = 0;
-
-
-  // player
-Player.prototype.roll = function() {
-  if (this.roll === 1) {
-  this.tempscore = 0;
-  } else {
-  this.tempscore += this.roll;
-  }
-}
-
 //user interface
 $("#turn").click(function(event) {
   event.prevent.Default();
@@ -50,4 +34,30 @@ $("#win").click function(event) {
     } else if (gamer[1].total >= 100) {
       alert(gamer[1].name + gamer[1].name);
     }
+});
+function Display() {
+  $("#Player1").text(gamer[0].name)
+  $("#Player2").text(gamer[1].name)
+  $("#playertotal1").text(gamer[0].score)
+  $("#playertotal2").text(gamer[1].score)
+}
+function change() {
+   if ($("#total").is(":visible")) {
+     gamer[0].score = (players[0].score += turn.sum());
+     switchArray = [0];
+     $("#turnTotal").text(turn)
+     $("#turn1").hide();
+     $("#turn2").text(gamer[1].name + "'its your turn").show();
+     alert(players[0].score);
+     Display();
+   } else {
+     gamer[1].score = (gamer[1].score += turn.sum());
+     turn = [0];
+     $("#turnTotal").text(turn)
+     $("#turn1").hide();
+     $("#turn2").text(players[0].name + "its your turn").show();
+     Display();
+     alert(gamer[1].score);
+     }
+   }
 });
