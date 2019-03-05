@@ -4,7 +4,7 @@ var turn = []
 
 function Dice(name, totalscore) {
   this.name = name;
-  this.score = totalscore;
+
   gamer.push(this)
 }
 
@@ -13,6 +13,17 @@ Array.prototype.total = function() {
 }
 
 //user interface
+$(document).ready(function() {
+
+  $("form#dice").submit(function(event){
+    var player1 = $("input#player1").val();
+    var player2 = $("input#player2").val();
+      $("#player1").text(player1);
+      $("#player2").text(player2);
+      $("form").hide();
+      $("#roll").show();
+      event.preventDefault();
+  });
 $("#turn").click(function(event) {
   event.prevent.Default();
   $("#playertotal").show();
@@ -60,4 +71,4 @@ function change() {
      alert(gamer[1].score);
      }
    }
-})
+ });
