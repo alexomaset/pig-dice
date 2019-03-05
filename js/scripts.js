@@ -5,7 +5,7 @@ var turn = []
 function Dice(name, totalscore) {
   this.name = name;
 
-  gamer.push(this)
+  gamer.push(this);
 }
 
 Array.prototype.total = function() {
@@ -25,7 +25,7 @@ $(document).ready(function() {
       event.preventDefault();
   });
 $("#turn").click(function(event) {
-  event.prevent.Default();
+  event.preventDefault();
   $("#playertotal").show();
   $("#results").show();
 var dice = function() {
@@ -72,3 +72,4 @@ function change() {
      }
    }
  });
+});
