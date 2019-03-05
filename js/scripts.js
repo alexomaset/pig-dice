@@ -4,11 +4,12 @@ var turn = []
 
 function Dice(name, totalscore) {
   this.name = name;
+  this.total = totalscore;
 
   gamer.push(this);
 }
 
-Array.prototype.total = function() {
+Array.prototype.sum = function() {
   return this.reduce(function(p1,p2) {return p1 + p2});
 }
 
@@ -36,7 +37,7 @@ if (dice()!==1) {
   $("#playertotal").text(dice());
   $("#results").text(dice().total)
 } else {
-  changePLay();
+  change();
 }
 $("#win").click(function(event) {
     change();
@@ -54,21 +55,21 @@ function Display() {
 }
 function change() {
    if ($("#total").is(":visible")) {
-     gamer[0].score = (players[0].score += turn.sum());
+     gamer[0].total= (players[0].total += turn.sum());
      switchArray = [0];
      $("#turnTotal").text(turn)
      $("#turn1").hide();
      $("#turn2").text(gamer[1].name + "'its your turn").show();
-     alert(players[0].score);
+     alert(players[0].total);
      Display();
    } else {
-     gamer[1].score = (gamer[1].score += turn.sum());
+     gamer[1].total = (gamer[1].total += turn.sum());
      turn = [0];
      $("#turnTotal").text(turn)
      $("#turn1").hide();
      $("#turn2").text(players[0].name + "its your turn").show();
      Display();
-     alert(gamer[1].score);
+     alert(gamer[1].totalscore);
      }
    }
  });
